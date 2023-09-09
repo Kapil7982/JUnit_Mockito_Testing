@@ -1,0 +1,81 @@
+package com.junit5.junit_mockito;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import javax.management.ConstructorParameters;
+
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.RepetitionInfo;
+import org.junit.jupiter.api.Test;
+
+public class MathUtilsTest {
+
+	@Test
+	public void testDivisionInt() {
+		
+		MathUtils mu = new MathUtils();
+		
+		assertEquals(5, mu.divisionInt(10, 2));
+		assertEquals(2,mu.divisionInt(10, 5));
+		assertEquals(-2,mu.divisionInt(-10, 5));
+		assertEquals(2,mu.divisionInt(-10, -5));
+		assertEquals(-2,mu.divisionInt(10, -5));
+		assertEquals(2,mu.divisionInt(15, 7));
+		assertEquals(0,mu.divisionInt(0, 5));
+		
+		assertThrows(ArithmeticException.class, () -> mu.divisionInt(10, 0));
+		assertThrows(ArithmeticException.class, () -> mu.divisionInt(0, 0));
+		
+	}
+	
+	@RepeatedTest(value = 4, name = "Running for {currentRepetition} out of {totalRepetitions}")
+	public void divisionDouble(RepetitionInfo rp) {
+		
+		MathUtils mu = new MathUtils();
+		
+		int currentRepetition = rp.getCurrentRepetition();
+		
+		switch(currentRepetition)
+		{
+		   case 1:
+			   assertEquals(2.0,mu.divisionDouble(10.0, 5.0));
+			   break;
+			   
+		   case 2:
+			   assertEquals(1.25,mu.divisionDouble(10.0, 8.0));
+			   break;
+			   
+		   case 3:
+			   assertTrue(Double.isInfinite( mu.divisionDouble(10.0, 0.0)));
+			   break;
+			   
+		   case 4:
+			   assertTrue(Double.isNaN( mu.divisionDouble(0.0, 0.0)));
+			   break;
+		}
+		
+		
+	}
+	
+	
+	@Test
+    void testIsPrime() {
+		
+        MathUtils mu = new MathUtils();
+        
+        assertTrue(mu.isPrime(2));
+        assertTrue(mu.isPrime(3));
+        assertTrue(mu.isPrime(5));
+        assertTrue(mu.isPrime(7));
+        assertTrue(mu.isPrime(11));
+        assertTrue(mu.isPrime(13));
+        
+        assertFalse(mu.isPrime(0));
+        assertFalse(mu.isPrime(1));
+        assertFalse(mu.isPrime(4));
+        assertFalse(mu.isPrime(8));
+        assertFalse(mu.isPrime(9));
+        assertFalse(mu.isPrime(10));
+    }
+
+}

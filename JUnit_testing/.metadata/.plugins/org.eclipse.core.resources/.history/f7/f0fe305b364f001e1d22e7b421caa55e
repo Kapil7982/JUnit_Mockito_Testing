@@ -1,0 +1,37 @@
+package com.junit5.junit_mockito;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.RepetitionInfo;
+import org.junit.jupiter.api.Test;
+
+public class MathUtilsTest {
+
+	@Test
+	public void testDivisionInt() {
+		
+		MathUtils mu = new MathUtils();
+		
+		assertEquals(5, mu.divisionInt(10, 2));
+		assertEquals(2,mu.divisionInt(10, 5));
+		assertEquals(-2,mu.divisionInt(-10, 5));
+		assertEquals(2,mu.divisionInt(-10, -5));
+		assertEquals(-2,mu.divisionInt(10, -5));
+		assertEquals(2,mu.divisionInt(15, 7));
+		assertEquals(0,mu.divisionInt(0, 5));
+		
+		assertThrows(ArithmeticException.class, () -> mu.divisionInt(10, 0));
+		assertThrows(ArithmeticException.class, () -> mu.divisionInt(0, 0));
+		
+	}
+	
+	@RepeatedTest(value = 4, name = "Running for {currentRepetition} out of {totalRepetitions}")
+	public void divisionDouble(RepetitionInfo rp) {
+		
+		MathUtils mu = new MathUtils();
+		
+		
+	}
+
+}

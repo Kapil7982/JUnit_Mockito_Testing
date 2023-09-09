@@ -1,0 +1,39 @@
+package com.junit5.junit_mockito;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class InstanceVariableDemoInTest {
+
+	static int i = 100;
+	
+	int j = 10;
+	
+	@BeforeEach
+	void start() {
+		System.out.println("#");
+		i++;
+		j--;
+	}
+	
+	@Test
+	void testOne() {
+		System.out.println("Inside testOne, i = "+ i + " j = " + j);
+	}
+	
+	@Test
+	void testTwo() {
+		System.out.println("Inside testTwo, i = "+ i + " j = " + j);
+	}
+	
+	@AfterEach
+	void stop() {
+		System.out.println("$");
+		i++;
+		j--;
+	}
+
+}

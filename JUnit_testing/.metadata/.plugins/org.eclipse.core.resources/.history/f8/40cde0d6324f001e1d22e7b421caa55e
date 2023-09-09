@@ -1,0 +1,24 @@
+package com.junit5.junit_mockito;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+public class MathUtilsTest {
+
+	@Test
+	public void testDivisionInt() {
+		
+		MathUtils mu = new MathUtils();
+		
+		
+		//assertEquals(2,mu.divisionDouble(10, 5));
+		assertEquals(-2,mu.divisionDouble(-10, 5));
+		assertEquals(2,mu.divisionDouble(-10, -5));
+		assertEquals(-2,mu.divisionDouble(10, -5));
+		assertEquals(2,mu.divisionDouble(15, 7));
+		assertEquals(0,mu.divisionDouble(0, 5));
+		
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.junit5.junit_mockito;
+
+public class MathUtils {
+
+	public int divisionInt(int a, int b) {
+		return (a/b);
+	}
+	
+	public double divisionDouble (double a, double b)
+	{
+		return (a/b);
+	}
+}

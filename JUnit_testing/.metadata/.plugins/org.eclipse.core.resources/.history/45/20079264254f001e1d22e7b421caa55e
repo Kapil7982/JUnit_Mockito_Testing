@@ -1,0 +1,11 @@
+package com.junit5.junit_mockito;
+
+
+public class AppTest 
+{
+   
+    public void shouldAnswerWithTrue()
+    {
+       
+    }
+}

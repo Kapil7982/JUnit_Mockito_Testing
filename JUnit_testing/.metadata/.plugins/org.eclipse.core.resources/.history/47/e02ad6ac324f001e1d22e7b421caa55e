@@ -1,0 +1,26 @@
+package com.junit5.junit_mockito;
+
+public class MathUtils {
+
+	
+	/**
+	 * This method to find the question of two integer numbers.
+	 * @param a numerator
+	 * @param b denominator
+	 * @return quotient
+	 */
+	public int divisionInt(int a, int b) {
+		return (a/b);
+	}
+	
+	/**
+	 * This method to find the question of two double numbers.
+	 * @param a numerator
+	 * @param b denominator
+	 * @return quotient
+	 */
+	public double divisionDouble (double a, double b)
+	{
+		return (a/b);
+	}
+}
